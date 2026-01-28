@@ -7,7 +7,7 @@ public class Ruin {
     double startAmount;
     double winChance;
     double winLimit;
-    // int totalSimulations;
+    int totalSimulations;
 
     System.out.println("How much money do you have?");
     startAmount = in.nextDouble();
@@ -15,10 +15,13 @@ public class Ruin {
     winChance = in.nextDouble();
     System.out.println("What is your win limit?");
     winLimit = in.nextDouble();
+    System.out.println("How many simulations would you like to run? ");
+    totalSimulations = in.nextInt();
 
      // defining variables
     double currentMoney = startAmount;
-
+for (int n = 0; n<totalSimulations; n++) {
+    currentMoney = 0;
     while ((currentMoney < winLimit) && (currentMoney > 0)) {
         if (winChance > Math.random()) {
             currentMoney ++;
@@ -28,15 +31,16 @@ public class Ruin {
         else {
             currentMoney --;
             System.out.println("You lose!");
-        }    
-    }
-    if (currentMoney >= winLimit) {
+        } 
+    }   
+    
+    if (currentMoney >= winLimit)  {
         System.out.println("Success!!!");
 
     }
     else if(currentMoney == 0) {
         System.out.println("Ruin!!!");
-
+    }
     }
     }
 
